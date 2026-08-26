@@ -289,15 +289,21 @@ if "show_explanation" not in st.session_state:
 st.markdown("""
 <div style="background-color: #2D5A3F; border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
     <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 12px;">
-        <svg width="46" height="46" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="32" r="28" fill="#1E3E2B" opacity="0.4"/>
-            <path d="M16 38C16 28 26 24 32 38C24 40 18 40 16 38Z" fill="#F8BBD0" opacity="0.85"/>
-            <path d="M48 38C48 28 38 24 32 38C40 40 46 40 48 38Z" fill="#F8BBD0" opacity="0.85"/>
-            <path d="M22 40C20 22 30 18 32 38C27 41 23 41 22 40Z" fill="#F06292"/>
-            <path d="M42 40C44 22 34 18 32 38C37 41 41 41 42 40Z" fill="#F06292"/>
-            <path d="M26 36C26 20 32 16 32 16C32 16 38 20 38 36C38 42 26 42 26 36Z" fill="#E91E63"/>
-            <path d="M20 44C26 48 38 48 44 44C38 50 26 50 20 44Z" fill="#A5D6A7"/>
-            <circle cx="32" cy="36" r="2.5" fill="#FFE082"/>
+        <svg width="52" height="52" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));">
+            <circle cx="50" cy="50" r="46" fill="#1C3826" opacity="0.6"/>
+            <g opacity="0.9">
+                <path d="M50 50 C35 25 35 15 50 10 C65 15 65 25 50 50Z" fill="#F8BBD0" transform="rotate(45 50 50)"/>
+                <path d="M50 50 C35 25 35 15 50 10 C65 15 65 25 50 50Z" fill="#F8BBD0" transform="rotate(135 50 50)"/>
+                <path d="M50 50 C35 25 35 15 50 10 C65 15 65 25 50 50Z" fill="#F8BBD0" transform="rotate(225 50 50)"/>
+                <path d="M50 50 C35 25 35 15 50 10 C65 15 65 25 50 50Z" fill="#F8BBD0" transform="rotate(315 50 50)"/>
+            </g>
+            <path d="M50 50 C32 28 32 14 50 8 C68 14 68 28 50 50Z" fill="#F06292"/>
+            <path d="M50 50 C32 28 32 14 50 8 C68 14 68 28 50 50Z" fill="#F06292" transform="rotate(90 50 50)"/>
+            <path d="M50 50 C32 28 32 14 50 8 C68 14 68 28 50 50Z" fill="#F06292" transform="rotate(180 50 50)"/>
+            <path d="M50 50 C32 28 32 14 50 8 C68 14 68 28 50 50Z" fill="#F06292" transform="rotate(270 50 50)"/>
+            <circle cx="50" cy="50" r="16" fill="#E91E63" opacity="0.85"/>
+            <circle cx="50" cy="50" r="8" fill="#FDD835"/>
+            <circle cx="50" cy="50" r="4" fill="#FFF59D"/>
         </svg>
     </div>
     <h1 style="font-size: 1.65rem; font-weight: bold; letter-spacing: 1.5px; color: #F5DF9E; margin: 0 0 0.5rem 0; text-shadow: 0 2px 4px rgba(0,0,0,0.15);">
