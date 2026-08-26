@@ -1,0 +1,71 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.env.*
+venv/
+.venv/
+env/
+ENV/
+
+# Temporary / Log files
+*.log
+*.tmp
+.cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Agent / IDE temporary configs
+.agent/
+.idea/
+.vscode/
+
+# Node modules
+node_modules/
+
+# Media files (Images, Videos, Audios)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+*.ico
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.m4a
+*.aac
+
+# Documents & Office files
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+*.pdf
+*.txt
+*.csv
+
+# Media & Content folders
+content/
+output/
+260823研習/
+project-clarification-dialogue/
+
+# Scripts not needed in deployment
+generate_cards.py
+generate_compass_table.py
+
+# Unignore critical requirements file
+!requirements.txt
