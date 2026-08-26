@@ -697,7 +697,7 @@ st.markdown("""
     </h3>
     <p style="font-size: 0.85rem; color: rgba(209, 250, 229, 0.85); line-height: 1.6; font-weight: 300; margin: 0;">
       在這個快節奏的時代，拼命追趕世界太累了。<br>
-      如果今天的指引曾為你帶來一絲安頓，請記得：今天，先溫柔地接住你自己。
+      如果今天的籤詩與指引曾為你帶來一絲安頓，請記得：今天，先溫柔地接住你自己。
     </p>
   </div>
 
@@ -714,13 +714,13 @@ st.markdown("""
           <span style="font-size: 0.7rem; padding: 2px 8px; border-radius: 9999px; background: rgba(6, 78, 59, 0.8); color: #A7F3D0; border: 1px solid rgba(5, 150, 105, 0.3);">心靈陪伴者</span>
         </div>
         <p style="font-size: 0.75rem; color: rgba(214, 211, 209, 0.9); line-height: 1.5; font-weight: 300; margin: 0.25rem 0 0 0;">
-          綠藝國際學苑創辦人。曾任科技企業工程主管、社工與國際園藝治療師；走過無常與至親病榻感悟，深信修行在日常柴米油鹽中，結合理性邏輯與自然調頻，陪你找回靈魂的原廠設定。
+          綠藝國際學苑創辦人。於觀音成道日出生，幼年深結佛緣，長期研討民間信仰與生命密碼；曾任科技企業工程主管與國際園藝治療師，走過生死無常與至親病榻感悟，深信修行在日常柴米油鹽中，以觀音慈悲心法結合理性邏輯與自然調頻，陪你找回靈魂的原廠設定。
         </p>
       </div>
     </div>
   </div>
 
-  <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; text-decoration: none; padding: 1rem; border-radius: 12px; background: rgba(6, 95, 70, 0.5); border: 1px solid rgba(52, 211, 153, 0.3); margin-bottom: 1.25rem; transition: background 0.2s ease;">
+  <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; text-decoration: none; padding: 1rem; border-radius: 12px; background: rgba(6, 95, 70, 0.5); border: 1px solid rgba(52, 211, 153, 0.3); margin-bottom: 1.25rem; transition: all 0.2s ease;">
     <div style="font-size: 0.75rem; font-weight: 600; color: #6EE7B7; margin-bottom: 0.25rem;">
       💬 綠藝漫活居 官方 LINE@
     </div>
@@ -728,7 +728,7 @@ st.markdown("""
       點此進入心靈導航站｜領取免費測算・預約諮詢・探索新書作品
     </div>
     <div style="font-size: 0.75rem; color: rgba(214, 211, 209, 0.8); font-weight: 300;">
-      輸入關鍵字即可取得先天本質測算、專屬綠植指引與 1 對 1 諮詢預約專區
+      加入後輸入關鍵字即可取得先天本質測算、專屬綠植指引與 1 對 1 諮詢專區
     </div>
   </a>
 
@@ -737,8 +737,8 @@ st.markdown("""
       這款免費靈籤與心靈工具由老臣持續自主研發與維運。<br>
       若這份陪伴對你有所啟發，歡迎隨緣贊助，護持更多心靈工具持續誕生。
     </p>
-    <a href="https://line.me/R/oaMessage/@mir4855b/?3" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border-radius: 9999px; background: rgba(253, 230, 138, 0.1); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.35); font-size: 0.75rem; font-weight: 500; text-decoration: none; transition: background 0.2s ease;">
-      <span>☕</span> 隨喜支持・前往 LINE@ 贊助老臣持續研發心靈陪伴工具
+    <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border-radius: 9999px; background: rgba(253, 230, 138, 0.1); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.35); font-size: 0.75rem; font-weight: 500; text-decoration: none; transition: background 0.2s ease;">
+      <span>☕</span> 隨喜支持・前往 LINE@ 輸入「3」贊助老臣持續研發
     </a>
   </div>
 
