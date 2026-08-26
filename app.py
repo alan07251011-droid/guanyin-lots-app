@@ -289,15 +289,36 @@ if "show_explanation" not in st.session_state:
 st.markdown("""
 <div style="background-color: #2D5A3F; border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
     <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 12px;">
-        <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));">
-            <path d="M12 44C20 48 44 48 52 44C44 52 20 52 12 44Z" fill="#3D7A55" opacity="0.85"/>
-            <path d="M14 42C12 30 22 22 28 36C22 38 18 40 14 42Z" fill="#F8B4D9" opacity="0.9"/>
-            <path d="M50 42C52 30 42 22 36 36C42 38 46 40 50 42Z" fill="#F8B4D9" opacity="0.9"/>
-            <path d="M22 43C18 25 30 15 32 35C28 38 25 41 22 43Z" fill="#F48FB1"/>
-            <path d="M42 43C46 25 34 15 32 35C36 38 39 41 42 43Z" fill="#F48FB1"/>
-            <path d="M32 10C26 22 26 38 32 44C38 38 38 22 32 10Z" fill="#F06292"/>
-            <circle cx="32" cy="34" r="3.5" fill="#FFE082"/>
-            <circle cx="32" cy="34" r="1.5" fill="#FFF8E1"/>
+        <svg width="56" height="42" viewBox="0 0 100 75" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));">
+            <defs>
+                <linearGradient id="lotusGradCenter" x1="50" y1="12" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#F48FB1"/>
+                    <stop offset="60%" stop-color="#F06292"/>
+                    <stop offset="100%" stop-color="#AD1457"/>
+                </linearGradient>
+                <linearGradient id="lotusGradMid" x1="50" y1="18" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#F8BBD0"/>
+                    <stop offset="80%" stop-color="#EC407A"/>
+                    <stop offset="100%" stop-color="#880E4F"/>
+                </linearGradient>
+                <linearGradient id="lotusGradOuter" x1="50" y1="26" x2="50" y2="58" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FCE4EC"/>
+                    <stop offset="75%" stop-color="#F48FB1"/>
+                    <stop offset="100%" stop-color="#C2185B"/>
+                </linearGradient>
+                <linearGradient id="leafGrad" x1="50" y1="56" x2="50" y2="68" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#81C784"/>
+                    <stop offset="100%" stop-color="#2E7D32"/>
+                </linearGradient>
+            </defs>
+            <path d="M15 60 C32 68, 68 68, 85 60 C75 67, 25 67, 15 60 Z" fill="url(#leafGrad)"/>
+            <path d="M18 52 C10 40, 20 28, 38 46 C28 50, 22 52, 18 52 Z" fill="url(#lotusGradOuter)" opacity="0.95"/>
+            <path d="M82 52 C90 40, 80 28, 62 46 C72 50, 78 52, 82 52 Z" fill="url(#lotusGradOuter)" opacity="0.95"/>
+            <path d="M28 54 C20 34, 38 20, 46 48 C38 52, 32 54, 28 54 Z" fill="url(#lotusGradMid)"/>
+            <path d="M72 54 C80 34, 62 20, 54 48 C62 52, 68 54, 72 54 Z" fill="url(#lotusGradMid)"/>
+            <path d="M50 14 C40 28, 40 50, 50 58 C60 50, 60 28, 50 14 Z" fill="url(#lotusGradCenter)"/>
+            <circle cx="50" cy="46" r="4" fill="#FFE082"/>
+            <circle cx="50" cy="46" r="1.8" fill="#FFF9C4"/>
         </svg>
     </div>
     <h1 style="font-size: 1.65rem; font-weight: bold; letter-spacing: 1.5px; color: #F5DF9E; margin: 0 0 0.5rem 0; text-shadow: 0 2px 4px rgba(0,0,0,0.15);">
