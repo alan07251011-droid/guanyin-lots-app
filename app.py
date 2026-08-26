@@ -10,6 +10,42 @@ st.set_page_config(
     layout="centered"
 )
 
+# 8 大提問面向定義與範例
+CATEGORIES_INFO = {
+    "本運": {
+        "icon": "🧭",
+        "example": "想了解我近期整體的氣運走勢、心境卡點與轉折契機。"
+    },
+    "事業": {
+        "icon": "💼",
+        "example": "我現任職...，正面臨（轉職/升遷/創業），求指引時機與盲點。"
+    },
+    "財運": {
+        "icon": "💰",
+        "example": "想了解近期投資／正財／合約買賣的走向與需注意的破口。"
+    },
+    "姻緣": {
+        "icon": "❤️",
+        "example": "我與（對象名/單身），想了解近期關係核心功課與正緣走向。"
+    },
+    "家運": {
+        "icon": "🏡",
+        "example": "想了解家中成員關係／買房搬遷／整體家庭氣場是否有需調和之處。"
+    },
+    "健康": {
+        "icon": "🌿",
+        "example": "近期身心容易疲憊，想了解身體調養與情緒平衡的方向。"
+    },
+    "學業": {
+        "icon": "📚",
+        "example": "我正準備（考試/進修），想了解考運起伏與備考心態指引。"
+    },
+    "求子": {
+        "icon": "👶",
+        "example": "我正處於（備孕/孕期），求指引安胎養身與順應自然的心法。"
+    }
+}
+
 # 森林系與心靈調頻安全 CSS（嚴格隱藏預設選單，確保行動端無遮罩阻擋）
 st.markdown("""
     <style>
@@ -105,35 +141,10 @@ st.markdown("""
         color: #2D4F38;
         padding: 6px 16px;
         border-radius: 20px;
-        font-size: 1.05rem;
+        font-size: 1.02rem;
         font-weight: bold;
         border: 1px solid #C2DCC8;
         margin-bottom: 0.5rem;
-    }
-
-    /* 六大生活指引網格 */
-    .judgment-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 12px;
-        margin-top: 10px;
-    }
-    .judgment-item {
-        background-color: #F4F8F5;
-        border-radius: 10px;
-        padding: 12px 14px;
-        border-left: 4px solid #2D4F38;
-    }
-    .judgment-label {
-        font-weight: bold;
-        color: #2D4F38;
-        font-size: 0.88rem;
-        margin-bottom: 6px;
-    }
-    .judgment-val {
-        font-size: 0.9rem;
-        color: #333333;
-        line-height: 1.5;
     }
 
     /* 籤詩毛筆風格展示盒 */
@@ -178,6 +189,16 @@ st.markdown("""
     .bwa-back {
         background: linear-gradient(145deg, #E6C280, #D4A757);
         color: #5A3906;
+    }
+
+    /* 主請示面向置頂高亮卡 */
+    .focused-category-card {
+        background: linear-gradient(135deg, #EBF3ED 0%, #DCECE0 100%);
+        border: 2px solid #2D4F38;
+        border-radius: 12px;
+        padding: 1.2rem 1.4rem;
+        margin-bottom: 1.2rem;
+        box-shadow: 0 4px 12px rgba(45, 79, 56, 0.08);
     }
 
     /* 溫暖支持卡片 */
@@ -255,6 +276,8 @@ if "user_name" not in st.session_state:
     st.session_state.user_name = ""
 if "user_question" not in st.session_state:
     st.session_state.user_question = ""
+if "selected_category" not in st.session_state:
+    st.session_state.selected_category = "本運"
 if "drawn_lot" not in st.session_state:
     st.session_state.drawn_lot = None
 if "divine_result" not in st.session_state:
@@ -324,23 +347,56 @@ if not st.session_state.show_explanation:
             else:
                 st.info(f"🌿 請至少點擊唸誦滿 3 遍（尚差 {3 - st.session_state.chant_count} 遍）。")
 
-    # 步驟三：稟報資訊與明確祈求
+    # 步驟三：稟報資訊與聚焦請示（升級 8 大面向 Tag 與動態範例）
     with st.container():
         st.markdown("""
         <div class="step-card">
             <div class="step-header">
                 <span class="step-badge">步驟三</span>
-                <span>稟報資訊與明確祈求（傳遞訊息）</span>
+                <span>稟報資訊與聚焦請示（8 大面向引導）</span>
             </div>
-            <p style="color: #4A5B4C; line-height: 1.6; font-size: 0.93rem; margin-bottom: 10px;">
-                在心中或輕聲默念：『弟子/信女（姓名），生於農曆/國曆〇年〇月〇日〇時，現居地址為〇〇〇。』<br>
-                <b>每一支籤只能請示一件具體的事項，避免泛泛而問。</b>
+            <p style="color: #4A5B4C; line-height: 1.6; font-size: 0.93rem; margin-bottom: 12px;">
+                在心中默念：『弟子/信女（姓名），生於農曆/國曆〇年〇月〇日〇時，現居地址為〇〇〇。』<br>
+                <b>請先點選下方【8 大請示面向】，每一支籤聚焦請示一件具體事項：</b>
             </p>
         </div>
         """, unsafe_allow_html=True)
         
+        # 8 大面向按鈕選擇區 (4x2 網格排版)
+        cat_keys = list(CATEGORIES_INFO.keys())
+        cat_cols1 = st.columns(4)
+        for i in range(4):
+            cat = cat_keys[i]
+            info = CATEGORIES_INFO[cat]
+            is_active = (st.session_state.selected_category == cat)
+            btn_label = f"✨ {info['icon']} 【{cat}】" if is_active else f"{info['icon']} 【{cat}】"
+            if cat_cols1[i].button(btn_label, key=f"cat_btn_{cat}"):
+                st.session_state.selected_category = cat
+                st.rerun()
+
+        cat_cols2 = st.columns(4)
+        for i in range(4, 8):
+            cat = cat_keys[i]
+            info = CATEGORIES_INFO[cat]
+            is_active = (st.session_state.selected_category == cat)
+            btn_label = f"✨ {info['icon']} 【{cat}】" if is_active else f"{info['icon']} 【{cat}】"
+            if cat_cols2[i-4].button(btn_label, key=f"cat_btn_{cat}"):
+                st.session_state.selected_category = cat
+                st.rerun()
+
+        active_cat = st.session_state.selected_category
+        active_info = CATEGORIES_INFO[active_cat]
+
+        # 面向範例與一鍵套用卡片
+        with st.container(border=True):
+            st.markdown(f"**🎯 當前選擇面向：{active_info['icon']} 【{active_cat}】**")
+            st.markdown(f"💡 **建議請示範例：** *「{active_info['example']}」*")
+            if st.button(f"📋 一鍵套用【{active_cat}】範例文字", key="apply_example_btn"):
+                st.session_state.user_question = active_info["example"]
+                st.rerun()
+
         # 請示原則指引折疊
-        with st.expander("💡 點此查看【良好請示範例】與【應避免的問法】"):
+        with st.expander("💡 點此查看【良好請示原則】與【應避免的問法】"):
             st.markdown("""
             * **✅ 良好範例：**
               - 「今年底前若轉職到新產業，發展是否合適？」
@@ -357,7 +413,7 @@ if not st.session_state.show_explanation:
             birth_info = st.text_input("出生年月日（國曆/農曆皆可）", placeholder="例如：國曆 1988年5月10日 巳時")
         with col_u2:
             address_info = st.text_input("現居地址（縣市/行政區即可）", placeholder="例如：台中市西屯區")
-            st.session_state.user_question = st.text_area("具體請示事項（單一明確事項）", value=st.session_state.user_question, placeholder="例如：下半年規劃轉換至綠色文創產業，未來發展方向與調頻建議為何？", height=68)
+            st.session_state.user_question = st.text_area("具體請示事項（可直接手動輸入或一鍵套用）", value=st.session_state.user_question, placeholder="例如：想了解我近期整體的氣運走勢、心境卡點與轉折契機。", height=68)
 
     # 步驟四：點選抽籤
     with st.container():
@@ -379,7 +435,8 @@ if not st.session_state.show_explanation:
             elif st.session_state.chant_count < 3:
                 st.warning("⚠️ 請先於步驟二點擊唸誦觀音聖號滿 3 遍，安頓心神。")
             else:
-                st.session_state.drawn_lot = random.randint(1, 100)
+                # 預設支援抽籤（支援 1~100 籤，測試時包含 1, 7 等）
+                st.session_state.drawn_lot = random.choice([1, 7, 2, 100]) if os.getenv("TEST_MOCK_MODE") else random.randint(1, 100)
                 st.session_state.divine_result = None
                 st.rerun()
 
@@ -402,7 +459,7 @@ if not st.session_state.show_explanation:
             """, unsafe_allow_html=True)
 
             if st.button("🪵 線上擲筊確認天意"):
-                outcome = random.choices(["sheng", "xiao", "yin"], weights=[55, 25, 20], k=1)[0]
+                outcome = random.choices(["sheng", "xiao", "yin"], weights=[60, 20, 20], k=1)[0]
                 st.session_state.divine_result = outcome
                 st.rerun()
 
@@ -457,23 +514,25 @@ else:
     lot = get_lot_data(st.session_state.drawn_lot)
     
     st.markdown("### 📖 第二階段：觀音靈籤解讀 ╳ 老臣身心靈調頻處方")
-    st.markdown(f"**親愛的 {st.session_state.user_name if st.session_state.user_name else '朋友'}**，針對您請示的：*「{st.session_state.user_question}」*，觀音菩薩賜予指引如下：")
+    st.markdown(f"**親愛的 {st.session_state.user_name if st.session_state.user_name else '朋友'}**，針對您請示的【{st.session_state.selected_category}】事項：*「{st.session_state.user_question}」*，觀音菩薩賜予指引如下：")
     
     # 籤號與雙典故大標
-    lot_num = lot.get("num", st.session_state.drawn_lot)
-    lot_story = lot.get("story", "心誠則靈")
+    lot_id = lot.get("id", st.session_state.drawn_lot)
+    lot_number = lot.get("number", f"第 {lot_id} 籤")
+    lot_level = lot.get("level", "吉籤")
+    lot_title = lot.get("title", f"第 {lot_id} 籤典故")
+    
     st.markdown(f"""
     <div class="step-card" style="text-align:center; border-top: 5px solid #2D4F38;">
-        <span style="background-color:#E2ECE5; color:#2D4F38; padding:4px 14px; border-radius:16px; font-weight:bold; font-size:0.9rem;">
-            觀音靈籤 第 {lot_num} 籤
+        <span style="background-color:#E2ECE5; color:#2D4F38; padding:4px 14px; border-radius:16px; font-weight:bold; font-size:0.9rem; margin-right:6px;">
+            觀音靈籤 {lot_number}（{lot_level}）
         </span>
-        <h2 style="color:#2D4F38; margin: 10px 0 5px 0;">典故：{lot_story}</h2>
+        <h2 style="color:#2D4F38; margin: 10px 0 5px 0;">典故：{lot_title}</h2>
     </div>
     """, unsafe_allow_html=True)
 
-    # 步驟一：當下能量狀態（淡化吉凶，著重指引）
-    energy_state = lot.get("energy_state", "🌿 蓄勢待發・向下扎根")
-    energy_desc = lot.get("energy_desc", "扎根期：當前宜厚積薄發，充實專業底蘊，耐心等待成熟之時。")
+    # 步驟一：當下能量狀態
+    energy_status = lot.get("energy_status") or lot.get("energy_state") or "順應自然・修持本心：回歸心靈澄澈，在日常行持中蓄積豐碩福報。"
     st.markdown(f"""
     <div class="step-card">
         <div class="step-header">
@@ -481,22 +540,19 @@ else:
             <span>當下能量狀態（能量流轉與定調）</span>
         </div>
         <div style="text-align:center; padding: 0.5rem 0;">
-            <div class="energy-badge">{energy_state}</div>
-            <p style="color:#3B4B3D; font-size:0.95rem; margin-top:8px; line-height:1.6;">
-                {energy_desc}
-            </p>
-            <p style="color:#7A8B7C; font-size:0.85rem; margin:0; font-style:italic;">
+            <div class="energy-badge">{energy_status}</div>
+            <p style="color:#7A8B7C; font-size:0.85rem; margin:8px 0 0 0; font-style:italic;">
                 🌿 溫馨提醒：吉凶無絕對，一切皆是當下心念與能量的流轉。
             </p>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 步驟二：籤詩故事與詩句解讀（核心靈魂）
+    # 步驟二：籤詩故事與詩句解讀
     poem_lines = lot.get("poem", ["一片明心照大千", "吉凶禍福在心田", "靜心自省無罣礙", "自然福報慶豐年"])
     poem_lines_html = "".join([f'<div class="poem-line">{line}</div>' for line in poem_lines])
-    context_guidance = lot.get("context_guidance", "本籤提醒我們，無論外在境遇如何變化，只要心存善念、專注當下，就能找到安頓自心的力量。")
-    poem_meaning = lot.get("poem_meaning", "順應自然規律，看懂時局起伏。好運之時謙遜扎根，沉潛之時蓄積能量，則無往不利。")
+    oracle_exp = lot.get("oracle_explanation") or "吉星高照。福祿自來。守正行善。百福駢臻。"
+    poem_meaning = lot.get("poem_meaning") or "此卦順應天時之象。凡事正道而行皆吉也。"
     
     st.markdown(f"""
     <div class="step-card">
@@ -508,9 +564,9 @@ else:
             {poem_lines_html}
         </div>
         <div style="background-color:#F7F4EE; border-radius:10px; padding:12px 14px; margin-top:10px;">
-            <p style="color:#2D4F38; font-weight:bold; margin:0 0 6px 0;">📜 【歷史典故主角處境與啟示】：</p>
+            <p style="color:#2D4F38; font-weight:bold; margin:0 0 6px 0;">📜 【聖意/斷曰】：</p>
             <p style="color:#4A5B4C; font-size:0.92rem; line-height:1.6; margin:0 0 10px 0;">
-                {context_guidance}
+                {oracle_exp}
             </p>
             <p style="color:#2D4F38; font-weight:bold; margin:0 0 6px 0;">💡 【白話詩意指引】：</p>
             <p style="color:#4A5B4C; font-size:0.92rem; line-height:1.6; margin:0;">
@@ -520,87 +576,83 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-    # 步驟三：老臣聊心・六大面向生活指引（100% 深度客製典故剖析）
-    judgment = lot.get("judgment", {})
-    val_overall = judgment.get("整體時局") or judgment.get("整體運勢") or "順應時節因緣，保持自性清明。"
-    val_career = judgment.get("事業職場") or judgment.get("事業功名") or "深耕專業核心，靜候良機展現。"
-    val_love = judgment.get("感情關係") or judgment.get("感情婚姻") or "以真誠與同理相伴，細水長流。"
-    val_wealth = judgment.get("財富投資") or judgment.get("求財投資") or "穩健理財配置，謹守風險底線。"
-    val_health = judgment.get("身心修復") or judgment.get("健康調養") or "調和作息節奏，親近自然綠意。"
-    val_people = judgment.get("貴人機緣") or judgment.get("出行尋人") or "廣結善緣，以誠相待自得助益。"
+    # 步驟三：老臣聊心・八大生活指引（支援主請示置頂高亮 + 8大面向Tab切換）
+    meanings = lot.get("meanings", {})
+    focused_cat = st.session_state.selected_category
+    focused_meaning = meanings.get(focused_cat, "順應時節因緣，保持自性清明。")
+    focused_icon = CATEGORIES_INFO.get(focused_cat, {}).get("icon", "🎯")
 
     st.markdown(f"""
     <div class="step-card">
         <div class="step-header">
             <span class="step-badge">步驟三</span>
-            <span>🧭 老臣聊心・六大面向生活指引</span>
-        </div>
-        <div class="judgment-grid">
-            <div class="judgment-item">
-                <div class="judgment-label">🧭 整體時局</div>
-                <div class="judgment-val">{val_overall}</div>
-            </div>
-            <div class="judgment-item">
-                <div class="judgment-label">💼 事業職場</div>
-                <div class="judgment-val">{val_career}</div>
-            </div>
-            <div class="judgment-item">
-                <div class="judgment-label">❤️ 感情關係</div>
-                <div class="judgment-val">{val_love}</div>
-            </div>
-            <div class="judgment-item">
-                <div class="judgment-label">💰 財富投資</div>
-                <div class="judgment-val">{val_wealth}</div>
-            </div>
-            <div class="judgment-item">
-                <div class="judgment-label">🌿 身心修復</div>
-                <div class="judgment-val">{val_health}</div>
-            </div>
-            <div class="judgment-item">
-                <div class="judgment-label">🤝 貴人機緣</div>
-                <div class="judgment-val">{val_people}</div>
-            </div>
+            <span>🧭 老臣聊心・八大生活指引</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 步驟四：老臣專屬身心靈調頻實踐（落地轉化 - 原生組件渲染）
-    st.markdown("### 🌿 步驟四：老臣專屬身心靈調頻實踐")
+    # 1. 優先高亮置頂主請示面向
+    st.markdown(f"""
+    <div class="focused-category-card">
+        <div style="font-weight: bold; color: #2D4F38; font-size: 1.05rem; margin-bottom: 6px;">
+            🎯 您當前聚焦請示的【{focused_icon} {focused_cat}】專屬指引：
+        </div>
+        <div style="color: #2C3E2E; font-size: 0.96rem; line-height: 1.7;">
+            {focused_meaning}
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
+    # 2. 八大面向 Tab 切換查看
+    all_cats = list(CATEGORIES_INFO.keys())
+    tab_labels = [f"{CATEGORIES_INFO[c]['icon']} {c}" for c in all_cats]
+    tabs = st.tabs(tab_labels)
+
+    for idx, cat_name in enumerate(all_cats):
+        with tabs[idx]:
+            cat_text = meanings.get(cat_name, "順應時節因緣，保持自性清明。")
+            st.markdown(f"""
+            <div style="background-color:#FFFFFF; border-radius:10px; padding:14px; border-left:4px solid #2D4F38; margin-top:8px; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+                <div style="font-weight:bold; color:#2D4F38; margin-bottom:6px; font-size:0.95rem;">
+                    {CATEGORIES_INFO[cat_name]['icon']} 【{cat_name}】生活指引：
+                </div>
+                <div style="color:#333333; font-size:0.92rem; line-height:1.65;">
+                    {cat_text}
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("<div style='height: 14px;'></div>", unsafe_allow_html=True)
+
+    # 步驟四：老臣專屬身心靈調頻實踐（原生組件渲染）
+    st.markdown("### 🌿 步驟四：老臣專屬身心靈調頻實踐")
+    
+    practice = lot.get("practice", {})
+    writing_prompt = practice.get("writing_prompt") or "寫下你目前最想開創或療癒的一件事，感受內在深處的平靜與力量。"
+    plant_prescription = practice.get("plant_prescription", {})
+    
     # 1. 靜心書寫引導卡片
     with st.container(border=True):
         st.markdown("#### ✍️ 【老臣靜心書寫引導】")
-        writing_data = lot.get('writing_prompts') or lot.get('mindful_writing') or lot.get('writing_guide') or []
-        if isinstance(writing_data, list):
-            for idx, q in enumerate(writing_data, 1):
-                st.markdown(f"**📝 提問 {idx}：** {q}")
-        elif isinstance(writing_data, dict):
-            for k, v in writing_data.items():
-                st.markdown(f"**📝 {k}：** {v}")
-        else:
-            st.markdown(f"**📝 覺察提問：** {writing_data}")
-        
+        st.markdown(f"**📝 覺察提問：** {writing_prompt}")
         st.caption("（邀請您拿出筆記本或在下方梳理，倒空雜訊，讓智慧自然浮現。）")
+        
+        # 互動筆記輸入框
+        user_note = st.text_area("📝 此刻您的靜心筆記 / 心靈轉念紀錄（可自由寫下帶走）：", placeholder="寫下此時此刻浮現在腦海的感受、看見與決定...", height=80)
+        if user_note:
+            st.success("🌿 很好，看見便是療癒的開始。將這份覺察帶入今日的生活中。")
 
     # 2. 園藝治療能量處方卡片
     with st.container(border=True):
         st.markdown("#### 🌿 【國際園藝治療師的能量處方】")
-        plant_data = lot.get('plant_prescription') or lot.get('plant_energy') or {}
+        p_element = plant_prescription.get("element", "木行生發能量")
+        p_name = plant_prescription.get("plant_name", "開運竹 / 馬拉巴栗（發財樹）")
+        p_energy = plant_prescription.get("energy", "生機勃發、節節高升、穩固扎根")
+        p_placement = plant_prescription.get("placement_guide", "放在平時最常專注工作的工作桌或書房視線前方。")
         
-        if isinstance(plant_data, dict):
-            plant_name = plant_data.get('plant') or plant_data.get('name') or '專屬開運綠植'
-            element = plant_data.get('element') or plant_data.get('five_elements') or '木'
-            insight = plant_data.get('wisdom') or plant_data.get('insight') or plant_data.get('message') or '順應自然節奏，靜心生長。'
-            
-            st.markdown(f"**🪴 建議調頻綠植：** **{plant_name}**（五行能量：{element}）")
-            st.markdown(f"**🌱 大自然植物照顧啟示：** {insight}")
-        else:
-            st.markdown(f"**🪴 綠植能量指引：** {plant_data}")
-
-    # 靜心書寫互動筆記區
-    user_note = st.text_area("📝 此刻您的靜心筆記 / 心靈轉念紀錄（可自由寫下帶走）：", placeholder="寫下此時此刻浮現在腦海的感受、看見與決定...", height=80)
-    if user_note:
-        st.success("🌿 很好，看見便是療癒的開始。將這份覺察帶入今日的生活中。")
+        st.markdown(f"**🪴 調頻五行與植栽：** **{p_name}**（{p_element}）")
+        st.markdown(f"**🌱 綠植能量意涵：** {p_energy}")
+        st.markdown(f"**🏡 綠植擺放指南：** {p_placement}")
 
     # 重新求籤按鈕
     if st.button("🔄 請示另一項具體事項（重新抽籤）"):
