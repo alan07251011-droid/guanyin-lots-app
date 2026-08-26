@@ -288,10 +288,26 @@ if "show_explanation" not in st.session_state:
 # --- 一、頂部品牌識別與慈悲視覺 ---
 st.markdown("""
 <div class="guanyin-banner">
-    <div style="font-size: 2.3rem; margin-bottom: 0.3rem;">🪷</div>
-    <div class="guanyin-title">綠藝國際學苑 ╳ 老臣聊心室</div>
-    <div style="font-size: 1.25rem; font-weight: bold; color: #E5C378; margin-bottom: 0.5rem;">觀音靈籤身心靈調頻</div>
-    <div class="guanyin-subtitle">以慈悲智慧照見本心 ╳ 以靜心書寫梳理思緒 ╳ 以自然綠植調和頻率</div>
+    <!-- 頂部蓮花圖示 -->
+    <div style="font-size: 2.3rem; margin-bottom: 0.4rem;">🌸</div>
+
+    <!-- 主標題（大字，金黃色/亮色高亮） -->
+    <h1 style="font-size: 1.65rem; font-weight: bold; letter-spacing: 1.5px; color: #F5DF9E; margin: 0 0 0.5rem 0; text-shadow: 0 2px 4px rgba(0,0,0,0.15);">
+        觀音靈籤身心靈調頻
+    </h1>
+
+    <!-- 三大核心精神 / 副標題（中字，白字） -->
+    <p style="font-size: 0.95rem; color: #E8F5ED; letter-spacing: 0.8px; font-weight: 300; margin: 0 0 0.8rem 0; opacity: 0.95; line-height: 1.6;">
+        以慈悲智慧照見本心 ╳ 以靜心書寫梳理思緒 ╳ 以自然綠植調和頻率
+    </p>
+
+    <!-- 分隔微光線 (增添精緻感) -->
+    <div style="width: 100px; height: 1px; background: rgba(210, 235, 218, 0.35); margin: 0.7rem auto;"></div>
+
+    <!-- 浮水印風格署名（小字，半透明、微弱白光質感） -->
+    <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.6); letter-spacing: 1.2px; font-family: monospace, sans-serif; margin: 0; user-select: none;">
+        綠藝國際學苑 ╳ 老臣聊心室 LUYILIFE ｜ 聽你的心，陪你調頻 ｜ 設計者：陳信忠 (老臣/Alan)
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
