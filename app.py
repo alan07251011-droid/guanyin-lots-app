@@ -686,24 +686,64 @@ else:
         st.session_state.chant_count = 0
         st.rerun()
 
-# --- 四、底部品牌頁尾與心靈共鳴模組 ---
+# --- 四、底部心靈共振與行動呼籲模組（CTA） ---
 st.markdown("""
-<div class="support-card">
-    <h4 style="color:#2D4F38; margin-top:0;">🌱 一份來自心靈的共鳴與支持</h4>
-    <p style="color:#444; font-size:0.95rem; line-height:1.7; margin-bottom:14px;">
-        如果這份小小的心靈陪伴工具，曾為此刻的你帶來一點清晰與安頓，<br>
-        歡迎前往<b>官方 LINE</b>留下你的感受與好評，讓老臣知道這份陪伴傳遞到了你心裡。<br><br>
-        若你認同這份理念，也歡迎<b>隨緣贊助支持</b>，陪伴老臣持續灌溉、開發更多有益於大眾的心靈陪伴工具！
+<div style="margin-top: 3rem; padding: 1.75rem 1.25rem; background-color: rgba(35, 71, 50, 0.95); border-radius: 16px; border: 1px solid rgba(16, 185, 129, 0.2); color: #F5F5F4; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2); max-width: 680px; margin-left: auto; margin-right: auto; text-align: center;">
+
+  <div style="margin-bottom: 1.25rem;">
+    <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🌱</div>
+    <h3 style="font-size: 1.15rem; font-weight: bold; color: #FDE68A; letter-spacing: 0.5px; margin: 0 0 0.5rem 0;">
+      受過傷的地方，細心灌溉，依然能長出翠綠的風景
+    </h3>
+    <p style="font-size: 0.85rem; color: rgba(209, 250, 229, 0.85); line-height: 1.6; font-weight: 300; margin: 0;">
+      在這個快節奏的時代，拼命追趕世界太累了。<br>
+      如果今天的指引曾為你帶來一絲安頓，請記得：今天，先溫柔地接住你自己。
     </p>
+  </div>
+
+  <div style="width: 60px; height: 1px; background: rgba(52, 211, 153, 0.35); margin: 1.25rem auto;"></div>
+
+  <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(52, 211, 153, 0.15); border-radius: 12px; padding: 1rem; margin-bottom: 1.25rem; text-align: left; display: flex; flex-direction: column; gap: 0.75rem;">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <div style="width: 44px; height: 44px; border-radius: 50%; background: #132E1E; border: 1px solid rgba(253, 230, 138, 0.4); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">
+        🌿
+      </div>
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+          <span style="font-size: 0.95rem; font-weight: bold; color: #FDE68A;">陳信忠（老臣 / Alan）</span>
+          <span style="font-size: 0.7rem; padding: 2px 8px; border-radius: 9999px; background: rgba(6, 78, 59, 0.8); color: #A7F3D0; border: 1px solid rgba(5, 150, 105, 0.3);">心靈陪伴者</span>
+        </div>
+        <p style="font-size: 0.75rem; color: rgba(214, 211, 209, 0.9); line-height: 1.5; font-weight: 300; margin: 0.25rem 0 0 0;">
+          綠藝國際學苑創辦人。曾任科技企業工程主管、社工與國際園藝治療師；走過無常與至親病榻感悟，深信修行在日常柴米油鹽中，結合理性邏輯與自然調頻，陪你找回靈魂的原廠設定。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; text-decoration: none; padding: 1rem; border-radius: 12px; background: rgba(6, 95, 70, 0.5); border: 1px solid rgba(52, 211, 153, 0.3); margin-bottom: 1.25rem; transition: background 0.2s ease;">
+    <div style="font-size: 0.75rem; font-weight: 600; color: #6EE7B7; margin-bottom: 0.25rem;">
+      💬 綠藝漫活居 官方 LINE@
+    </div>
+    <div style="font-size: 0.95rem; font-weight: bold; color: #FFFFFF; margin-bottom: 0.25rem;">
+      點此進入心靈導航站｜領取免費測算・預約諮詢・探索新書作品
+    </div>
+    <div style="font-size: 0.75rem; color: rgba(214, 211, 209, 0.8); font-weight: 300;">
+      輸入關鍵字即可取得先天本質測算、專屬綠植指引與 1 對 1 諮詢預約專區
+    </div>
+  </a>
+
+  <div style="padding-top: 0.5rem; border-top: 1px solid rgba(16, 185, 129, 0.2);">
+    <p style="font-size: 0.75rem; color: rgba(209, 250, 229, 0.75); line-height: 1.5; font-weight: 300; margin: 0 0 0.75rem 0;">
+      這款免費靈籤與心靈工具由老臣持續自主研發與維運。<br>
+      若這份陪伴對你有所啟發，歡迎隨緣贊助，護持更多心靈工具持續誕生。
+    </p>
+    <a href="https://line.me/R/oaMessage/@mir4855b/?3" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.25rem; border-radius: 9999px; background: rgba(253, 230, 138, 0.1); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.35); font-size: 0.75rem; font-weight: 500; text-decoration: none; transition: background 0.2s ease;">
+      <span>☕</span> 隨喜支持・前往 LINE@ 贊助老臣持續研發心靈陪伴工具
+    </a>
+  </div>
+
 </div>
 """, unsafe_allow_html=True)
-
-# 單一聚焦導流按鈕
-st.link_button(
-    label="🌿 前往官方 LINE 聊心、回饋與支持老臣",
-    url=LINE_OFFICIAL_URL,
-    use_container_width=True
-)
 
 st.markdown("---")
 st.caption("綠藝國際學苑 ╳ 老臣聊心室 LUYILIFE © 2026 ｜ 聽你的心，陪你調頻 ｜ 設計者：陳信忠 (老臣/Alan)")
