@@ -287,10 +287,21 @@ if "show_explanation" not in st.session_state:
 
 # --- 一、頂部品牌識別與慈悲視覺 ---
 st.markdown("""
-<div style="background: linear-gradient(135deg, #2D4F38 0%, #3D6A4E 60%, #5B886B 100%); border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 6px 20px rgba(45, 79, 56, 0.15); border: 1px solid rgba(255, 255, 255, 0.15); margin-bottom: 20px;">
-    <div style="font-size: 2.2rem; margin-bottom: 8px;">🌸</div>
+<div style="background-color: #2D5A3F; border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 12px;">
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));">
+            <path d="M12 44C20 48 44 48 52 44C44 52 20 52 12 44Z" fill="#3D7A55" opacity="0.85"/>
+            <path d="M14 42C12 30 22 22 28 36C22 38 18 40 14 42Z" fill="#F8B4D9" opacity="0.9"/>
+            <path d="M50 42C52 30 42 22 36 36C42 38 46 40 50 42Z" fill="#F8B4D9" opacity="0.9"/>
+            <path d="M22 43C18 25 30 15 32 35C28 38 25 41 22 43Z" fill="#F48FB1"/>
+            <path d="M42 43C46 25 34 15 32 35C36 38 39 41 42 43Z" fill="#F48FB1"/>
+            <path d="M32 10C26 22 26 38 32 44C38 38 38 22 32 10Z" fill="#F06292"/>
+            <circle cx="32" cy="34" r="3.5" fill="#FFE082"/>
+            <circle cx="32" cy="34" r="1.5" fill="#FFF8E1"/>
+        </svg>
+    </div>
     <h1 style="font-size: 1.65rem; font-weight: bold; letter-spacing: 1.5px; color: #F5DF9E; margin: 0 0 0.5rem 0; text-shadow: 0 2px 4px rgba(0,0,0,0.15);">
-        觀音靈籤身心靈調頻
+        觀音靈籤 身心靈調頻
     </h1>
     <p style="font-size: 0.95rem; color: #E8F5ED; letter-spacing: 0.8px; font-weight: 300; margin: 0 0 0.8rem 0; opacity: 0.95; line-height: 1.6;">
         以慈悲智慧照見本心 ╳ 以靜心書寫梳理思緒 ╳ 以自然綠植調和頻率
