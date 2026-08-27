@@ -5,8 +5,8 @@ from guanyin_lots import get_lot_data
 
 # 頁面基本配置
 st.set_page_config(
-    page_title="綠藝國際學苑 ╳ 老臣聊心室 ╳ 觀音靈籤調頻",
-    page_icon="🪷",
+    page_title="觀音靈籤 身心靈調頻 ｜ 老臣聊心室",
+    page_icon="🌸",
     layout="centered"
 )
 
