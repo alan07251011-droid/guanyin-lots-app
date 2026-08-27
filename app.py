@@ -687,7 +687,7 @@ else:
         st.rerun()
 
 # --- 四、底部心靈共振與行動呼籲模組（CTA） ---
-st.markdown("""
+footer_html = """
 <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 24px 20px; margin-top: 35px; text-align: center;">
     <div style="font-size: 1.15rem; font-weight: 600; color: #FFE082; margin-bottom: 8px;">
         🌳 受過傷的地方，細心灌溉，依然能長出翠綠的風景
@@ -706,13 +706,14 @@ st.markdown("""
         </p>
     </div>
 
-    <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; background: linear-gradient(135deg, #2E7D32, #1B5E20); color: #FFFFFF; text-decoration: none; padding: 14px 16px; border-radius: 10px; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-        💬 免費加入官方 LINE@ <br>
-        <span style="font-size: 0.8rem; font-weight: normal; opacity: 0.9;">領取深度指引・預約諮詢・新書作品・隨喜贊助研發</span>
+    <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; background: linear-gradient(135deg, #2E7D32, #1B5E20); color: #FFFFFF; text-decoration: none; padding: 14px 16px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); line-height: 1.4;">
+        💬 免費加入官方 LINE@ ｜ 領取深度指引・預約諮詢・新書作品・隨喜贊助研發
     </a>
     
     <div style="font-size: 0.72rem; color: #90A4AE; margin-top: 16px;">
         綠藝國際學苑 ╳ 老臣聊心室 LUYILIFE © 2026 ｜ 聽你的心，陪你調頻 ｜ 設計者：陳信忠 (老臣/Alan)
     </div>
 </div>
-""", unsafe_allow_html=True)
+"""
+
+st.markdown(footer_html, unsafe_allow_html=True)
