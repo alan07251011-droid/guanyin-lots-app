@@ -688,17 +688,17 @@ else:
 
 # --- 四、底部心靈共振與行動呼籲模組（CTA） ---
 footer_html = (
-    '<div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 24px 20px; margin-top: 35px; text-align: center;">'
-    '<div style="font-size: 1.15rem; font-weight: 600; color: #FFE082; margin-bottom: 8px;">🌳 受過傷的地方，細心灌溉，依然能長出翠綠的風景</div>'
-    '<div style="font-size: 0.9rem; color: #E0E0E0; margin-bottom: 16px; line-height: 1.5;">心靈指引只是起點，真正的智慧在於回到日常生活，溫柔地接住自己。</div>'
-    '<div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 14px; margin-bottom: 18px;">'
-    '<span style="font-weight: 600; color: #FFFFFF; font-size: 0.95rem;">設計者：陳信忠（老臣 / Alan）</span> '
-    '<span style="font-size: 0.75rem; background: #1B5E20; color: #A5D6A7; padding: 2px 8px; border-radius: 12px; margin-left: 6px;">心靈陪伴者</span> '
-    '<span style="font-size: 0.75rem; background: #004D40; color: #80CBC4; padding: 2px 8px; border-radius: 12px; margin-left: 4px;">國際園藝治療師</span>'
-    '<p style="font-size: 0.82rem; color: #B0BEC5; margin-top: 8px; margin-bottom: 0; line-height: 1.4;">科技企業設計工程主管轉身・綠藝國際學苑創辦人<br>以「觀音心法 × 靜心書寫 × 生命密碼 × 園藝療法」陪你找回靈魂的原廠設定。</p>'
+    '<div style="background: rgba(46, 125, 50, 0.06); border: 1px solid rgba(46, 125, 50, 0.2); border-radius: 16px; padding: 24px 20px; margin-top: 35px; text-align: center;">'
+    '<div style="font-size: 1.15rem; font-weight: 700; color: #1B4332; margin-bottom: 8px;">🌲 受過傷的地方，細心灌溉，依然能長出翠綠的風景</div>'
+    '<div style="font-size: 0.9rem; color: #4A5568; margin-bottom: 16px; line-height: 1.5;">心靈指引只是起點，真正的智慧在於回到日常生活，溫柔地接住自己。</div>'
+    '<div style="border-top: 1px solid rgba(46, 125, 50, 0.15); padding-top: 14px; margin-bottom: 18px;">'
+    '<span style="font-weight: 700; color: #1B4332; font-size: 0.95rem;">設計者：陳信忠（老臣 / Alan）</span> '
+    '<span style="font-size: 0.75rem; background: #1B5E20; color: #FFFFFF; padding: 2px 8px; border-radius: 12px; margin-left: 6px;">心靈陪伴者</span> '
+    '<span style="font-size: 0.75rem; background: #004D40; color: #FFFFFF; padding: 2px 8px; border-radius: 12px; margin-left: 4px;">國際園藝治療師</span>'
+    '<p style="font-size: 0.85rem; color: #2D3748; margin-top: 8px; margin-bottom: 0; line-height: 1.5;">科技企業設計工程主管轉身・綠藝國際學苑創辦人<br>以「觀音心法 × 靜心書寫 × 生命密碼 × 園藝療法」陪你找回靈魂的原廠設定。</p>'
     '</div>'
-    '<a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; background: linear-gradient(135deg, #2E7D32, #1B5E20); color: #FFFFFF; text-decoration: none; padding: 14px 16px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2); line-height: 1.4;">💬 免費加入官方 LINE@ ｜ 領取深度指引・預約諮詢・新書作品・隨喜贊助研發</a>'
-    '<div style="font-size: 0.72rem; color: #90A4AE; margin-top: 16px;">綠藝國際學苑 ✕ 老臣聊心室 LUYILIFE © 2026 ｜ 聽你的心，陪你調頻 ｜ 設計者：陳信忠 (老臣/Alan)</div>'
+    '<a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; background: linear-gradient(135deg, #2E7D32, #1B5E20); color: #FFFFFF; text-decoration: none; padding: 14px 16px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); line-height: 1.4;">💬 免費加入官方 LINE@ ｜ 領取深度指引・預約諮詢・新書作品・隨喜贊助研發</a>'
+    '<div style="font-size: 0.75rem; color: #718096; margin-top: 16px;">綠藝國際學苑 ✕ 老臣聊心室 LUYILIFE © 2026 ｜ 聽你的心，陪你調頻 ｜ 設計者：陳信忠 (老臣/Alan)</div>'
     '</div>'
 )
 
