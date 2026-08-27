@@ -688,63 +688,31 @@ else:
 
 # --- 四、底部心靈共振與行動呼籲模組（CTA） ---
 st.markdown("""
-<div style="margin-top: 3.5rem; padding: 2rem 1.5rem; background-color: rgba(35, 71, 50, 0.95); border-radius: 18px; border: 1px solid rgba(16, 185, 129, 0.25); color: #F5F5F4; box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.25); max-width: 680px; margin-left: auto; margin-right: auto; text-align: center;">
-
-  <div style="margin-bottom: 1.5rem;">
-    <div style="font-size: 1.75rem; margin-bottom: 0.35rem;">🌿</div>
-    <h3 style="font-size: 1.25rem; font-weight: bold; color: #FDE68A; letter-spacing: 0.5px; margin: 0 0 0.6rem 0; line-height: 1.4;">
-      受過傷的地方，細心灌溉，依然能長出翠綠的風景
-    </h3>
-    <p style="font-size: 0.95rem; color: rgba(209, 250, 229, 0.9); line-height: 1.65; font-weight: 300; margin: 0;">
-      心靈陪伴指引只是看見內在設定的起點，<br>
-      真正的智慧在於回到日常生活，溫柔地接住自己。
-    </p>
-  </div>
-
-  <div style="width: 70px; height: 1px; background: rgba(52, 211, 153, 0.4); margin: 1.5rem auto;"></div>
-
-  <div style="background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(52, 211, 153, 0.2); border-radius: 14px; padding: 1.25rem; margin-bottom: 1.5rem; text-align: left; display: flex; flex-direction: column; gap: 0.85rem;">
-    <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
-      <div style="width: 48px; height: 48px; border-radius: 50%; background: #132E1E; border: 1px solid rgba(253, 230, 138, 0.5); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; margin-top: 2px;">
-        🌿
-      </div>
-      <div>
-        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.4rem;">
-          <span style="font-size: 1.05rem; font-weight: bold; color: #FDE68A;">陳信忠（老臣 / Alan）</span>
-          <span style="font-size: 0.75rem; padding: 2px 10px; border-radius: 9999px; background: rgba(6, 78, 59, 0.85); color: #A7F3D0; border: 1px solid rgba(5, 150, 105, 0.4); font-weight: 500;">心靈陪伴者</span>
-          <span style="font-size: 0.75rem; padding: 2px 10px; border-radius: 9999px; background: rgba(6, 78, 59, 0.85); color: #A7F3D0; border: 1px solid rgba(5, 150, 105, 0.4); font-weight: 500;">國際園藝治療師</span>
-        </div>
-        <p style="font-size: 0.88rem; color: rgba(231, 229, 228, 0.95); line-height: 1.65; font-weight: 300; margin: 0;">
-          綠藝國際學苑創辦人暨「老臣聊心室」心靈陪伴者；老臣於觀音成道日出生，幼年深結佛緣，長期研討宗教信仰與生命密碼；曾任科技企業工程主管與國際園藝治療師。深信修行在日常柴米油鹽中，以「觀音心法 × 靜心書寫 × 生命密碼 × 園藝療法」結合理性邏輯與自然調頻，陪你找回靈魂的原廠設定。
+<div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 16px; padding: 24px 20px; margin-top: 35px; text-align: center;">
+    <div style="font-size: 1.15rem; font-weight: 600; color: #FFE082; margin-bottom: 8px;">
+        🌳 受過傷的地方，細心灌溉，依然能長出翠綠的風景
+    </div>
+    <div style="font-size: 0.9rem; color: #E0E0E0; margin-bottom: 16px; line-height: 1.5;">
+        心靈指引只是起點，真正的智慧在於回到日常生活，溫柔地接住自己。
+    </div>
+    
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 14px; margin-bottom: 18px;">
+        <span style="font-weight: 600; color: #FFFFFF; font-size: 0.95rem;">設計者：陳信忠（老臣 / Alan）</span>
+        <span style="font-size: 0.75rem; background: #1B5E20; color: #A5D6A7; padding: 2px 8px; border-radius: 12px; margin-left: 6px;">心靈陪伴者</span>
+        <span style="font-size: 0.75rem; background: #004D40; color: #80CBC4; padding: 2px 8px; border-radius: 12px; margin-left: 4px;">國際園藝治療師</span>
+        <p style="font-size: 0.82rem; color: #B0BEC5; margin-top: 8px; margin-bottom: 0; line-height: 1.4;">
+            科技企業設計工程主管轉身・綠藝國際學苑創辦人<br>
+            以「觀音心法 × 靜心書寫 × 生命密碼 × 園藝療法」陪你找回靈魂的原廠設定。
         </p>
-      </div>
     </div>
-  </div>
 
-  <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; text-decoration: none; padding: 1.15rem 1rem; border-radius: 14px; background: rgba(6, 95, 70, 0.6); border: 1px solid rgba(52, 211, 153, 0.35); margin-bottom: 1.5rem; transition: background 0.2s ease;">
-    <div style="font-size: 0.82rem; font-weight: 600; color: #6EE7B7; margin-bottom: 0.3rem;">
-      💬 綠藝漫活居 官方 LINE@
-    </div>
-    <div style="font-size: 1.05rem; font-weight: bold; color: #FFFFFF; margin-bottom: 0.35rem; line-height: 1.4;">
-      點此進入心靈導航站｜領取深度指引・預約諮詢・探索新書作品
-    </div>
-    <div style="font-size: 0.82rem; color: rgba(214, 211, 209, 0.9); font-weight: 300;">
-      加入後輸入對應關鍵字即可取得所需資源
-    </div>
-  </a>
-
-  <div style="padding-top: 0.75rem; border-top: 1px solid rgba(16, 185, 129, 0.25);">
-    <p style="font-size: 0.85rem; color: rgba(209, 250, 229, 0.85); line-height: 1.6; font-weight: 300; margin: 0 0 0.85rem 0;">
-      這套心靈數位工具由老臣持續自主研發與維運。<br>
-      若這份陪伴為你帶來安頓，歡迎隨喜贊助，護持更多心靈工具持續誕生。
-    </p>
-    <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.4rem; border-radius: 9999px; background: rgba(253, 230, 138, 0.12); color: #FDE68A; border: 1px solid rgba(253, 230, 138, 0.4); font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: background 0.2s ease;">
-      <span>🍵</span> 隨喜支持・前往 LINE@ 輸入「3」贊助老臣持續研發
+    <a href="https://line.me/R/ti/p/@mir4855b" target="_blank" style="display: block; background: linear-gradient(135deg, #2E7D32, #1B5E20); color: #FFFFFF; text-decoration: none; padding: 14px 16px; border-radius: 10px; font-weight: 600; font-size: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+        💬 免費加入官方 LINE@ <br>
+        <span style="font-size: 0.8rem; font-weight: normal; opacity: 0.9;">領取深度指引・預約諮詢・新書作品・隨喜贊助研發</span>
     </a>
-  </div>
-
+    
+    <div style="font-size: 0.72rem; color: #90A4AE; margin-top: 16px;">
+        綠藝國際學苑 ╳ 老臣聊心室 LUYILIFE © 2026 ｜ 聽你的心，陪你調頻 ｜ 設計者：陳信忠 (老臣/Alan)
+    </div>
 </div>
 """, unsafe_allow_html=True)
-
-st.markdown("---")
-st.caption("綠藝國際學苑 ╳ 老臣聊心室 LUYILIFE © 2026 ｜ 聽你的心，陪你調頻 ｜ 設計者：陳信忠 (老臣/Alan)")
