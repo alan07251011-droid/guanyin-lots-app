@@ -263,6 +263,13 @@ st.markdown("""
         pointer-events: auto !important;
         cursor: pointer !important;
     }
+
+    /* 隱藏右上角選單、GitHub 標記與頂部工具列 */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    [data-testid="stHeader"] {display: none;}
+    [data-testid="stToolbar"] {display: none;}
     </style>
 """, unsafe_allow_html=True)
 
