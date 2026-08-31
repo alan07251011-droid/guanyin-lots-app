@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 import os
+from lots_data import SPECIAL_LOTS
 from guanyin_lots import get_lot_data
 
 # 頁面基本配置
@@ -460,16 +461,17 @@ if not st.session_state.show_explanation:
         </div>
         """, unsafe_allow_html=True)
 
-        if st.button("🎋 虔心請示・抽取靈籤"):
+        if st.button("🎋 弟子/信女誠心抽籤", use_container_width=True):
             if not st.session_state.user_name or not st.session_state.user_question:
                 st.warning("⚠️ 請先於步驟三填寫您的【姓名】與【具體請示事項】，再行抽籤。")
             elif st.session_state.chant_count < 3:
                 st.warning("⚠️ 請先於步驟二點擊唸誦觀音聖號滿 3 遍，安頓心神。")
             else:
-                # 預設支援抽籤（支援 1~100 籤，測試時包含 1, 7 等）
-                st.session_state.drawn_lot = random.choice([1, 7, 2, 100]) if os.getenv("TEST_MOCK_MODE") else random.randint(1, 100)
-                st.session_state.divine_result = None
-                st.rerun()
+                with st.spinner("觀音菩薩慈悲感知中，正在為您搖出相應靈籤..."):
+                    st.session_state.drawn_lot = random.randint(1, 100)
+                    st.session_state.divine_result = None
+                    st.session_state.show_explanation = False
+                    st.rerun()
 
         if st.session_state.drawn_lot is not None:
             st.info(f"🎋 觀音菩薩初步賜予：【第 {st.session_state.drawn_lot} 籤】。請進行【步驟五：擲筊確認】天意。")
@@ -542,7 +544,7 @@ if not st.session_state.show_explanation:
 
 # --- 三、解籤展示（第二階段：解籤四步驟與專屬調頻處方） ---
 else:
-    lot = get_lot_data(st.session_state.drawn_lot)
+    lot = SPECIAL_LOTS.get(st.session_state.drawn_lot, get_lot_data(st.session_state.drawn_lot))
     
     st.markdown("### 📖 第二階段：觀音靈籤解讀 ╳ 老臣身心靈調頻處方")
     st.markdown(f"**親愛的 {st.session_state.user_name if st.session_state.user_name else '朋友'}**，針對您請示的【{st.session_state.selected_category}】事項：*「{st.session_state.user_question}」*，觀音菩薩賜予指引如下：")
