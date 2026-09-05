@@ -361,25 +361,14 @@ if not st.session_state.show_explanation:
                 <span class="step-badge">步驟二</span>
                 <span>唸誦聖號（建立連結）</span>
             </div>
-            <p style="color: #4A5B4C; line-height: 1.6; font-size: 0.93rem; margin-bottom: 10px;">
-                輕聲唸誦『<b>南無大慈大悲救苦救難觀世音菩薩</b>』或『<b>南無觀世音菩薩</b>』。<br>
+            <p style="color: #4A5B4C; line-height: 1.6; font-size: 0.93rem; margin: 0;">
+                輕聲唸誦或心中默念『<b>南無大慈大悲救苦救難觀世音菩薩</b>』或『<b>南無觀世音菩薩</b>』。<br>
                 最少三遍；若心境浮躁可增至七或十遍，直到呼吸平穩、內心平靜。
             </p>
         </div>
         """, unsafe_allow_html=True)
-        
-        col_c1, col_c2 = st.columns([1, 1])
-        with col_c1:
-            if st.button(f"🪷 唸誦觀音聖號（目前已唸：{st.session_state.chant_count} 遍）"):
-                st.session_state.chant_count += 1
-                st.rerun()
-        with col_c2:
-            if st.session_state.chant_count >= 3:
-                st.success(f"✨ 已虔誠唸誦 {st.session_state.chant_count} 遍，心念已安頓，可進行下一步。")
-            else:
-                st.info(f"🌿 請至少點擊唸誦滿 3 遍（尚差 {3 - st.session_state.chant_count} 遍）。")
 
-    # 步驟三：稟報資訊與聚焦請示（升級 8 大面向 Tag 與動態範例）
+    # 步驟三：稟報資訊與聚焦請示（8 大面向引導）
     with st.container():
         st.markdown("""
         <div class="step-card">
@@ -389,7 +378,7 @@ if not st.session_state.show_explanation:
             </div>
             <p style="color: #4A5B4C; line-height: 1.6; font-size: 0.93rem; margin-bottom: 12px;">
                 在心中默念：『弟子/信女（姓名），生於農曆/國曆〇年〇月〇日〇時，現居地址為〇〇〇。』<br>
-                <b>請先點選下方【8 大請示面向】，每一支籤聚焦請示一件具體事項：</b>
+                <b>請先點選下方【8 大請示面向】，在心中聚焦默想一件具體事項：</b>
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -419,13 +408,10 @@ if not st.session_state.show_explanation:
         active_cat = st.session_state.selected_category
         active_info = CATEGORIES_INFO[active_cat]
 
-        # 面向範例與一鍵套用卡片
+        # 面向範例說明卡片（供求籤者專注默念）
         with st.container(border=True):
-            st.markdown(f"**🎯 當前選擇面向：{active_info['icon']} 【{active_cat}】**")
-            st.markdown(f"💡 **建議請示範例：** *「{active_info['example']}」*")
-            if st.button(f"📋 一鍵套用【{active_cat}】範例文字", key="apply_example_btn"):
-                st.session_state.user_question = active_info["example"]
-                st.rerun()
+            st.markdown(f"**🎯 當前聚焦面向：{active_info['icon']} 【{active_cat}】**")
+            st.markdown(f"💡 **建議默念請示範例：** *「{active_info['example']}」*")
 
         # 請示原則指引折疊
         with st.expander("💡 點此查看【良好請示原則】與【應避免的問法】"):
@@ -438,14 +424,6 @@ if not st.session_state.show_explanation:
               - 「我什麼時候會發財？」（缺乏主動性與具體時間範疇）
               - 「我該選 A 公司還是 B 公司？」（二選一請分兩次分別請示，或改問「去 A 公司的發展」）
             """)
-
-        col_u1, col_u2 = st.columns(2)
-        with col_u1:
-            st.session_state.user_name = st.text_input("信士 / 信女 姓名", value=st.session_state.user_name, placeholder="例如：陳信忠 或 小晴")
-            birth_info = st.text_input("出生年月日（國曆/農曆皆可）", placeholder="例如：國曆 1988年5月10日 巳時")
-        with col_u2:
-            address_info = st.text_input("現居地址（縣市/行政區即可）", placeholder="例如：台中市西屯區")
-            st.session_state.user_question = st.text_area("具體請示事項（可直接手動輸入或一鍵套用）", value=st.session_state.user_question, placeholder="例如：想了解我近期整體的氣運走勢、心境卡點與轉折契機。", height=68)
 
     # 步驟四：點選抽籤
     with st.container():
@@ -462,16 +440,11 @@ if not st.session_state.show_explanation:
         """, unsafe_allow_html=True)
 
         if st.button("🎋 弟子/信女誠心抽籤", use_container_width=True):
-            if not st.session_state.user_name or not st.session_state.user_question:
-                st.warning("⚠️ 請先於步驟三填寫您的【姓名】與【具體請示事項】，再行抽籤。")
-            elif st.session_state.chant_count < 3:
-                st.warning("⚠️ 請先於步驟二點擊唸誦觀音聖號滿 3 遍，安頓心神。")
-            else:
-                with st.spinner("觀音菩薩慈悲感知中，正在為您搖出相應靈籤..."):
-                    st.session_state.drawn_lot = random.randint(1, 100)
-                    st.session_state.divine_result = None
-                    st.session_state.show_explanation = False
-                    st.rerun()
+            with st.spinner("觀音菩薩慈悲感知中，正在為您搖出相應靈籤..."):
+                st.session_state.drawn_lot = random.randint(1, 100)
+                st.session_state.divine_result = None
+                st.session_state.show_explanation = False
+                st.rerun()
 
         if st.session_state.drawn_lot is not None:
             st.info(f"🎋 觀音菩薩初步賜予：【第 {st.session_state.drawn_lot} 籤】。請進行【步驟五：擲筊確認】天意。")
@@ -547,7 +520,8 @@ else:
     lot = SPECIAL_LOTS.get(st.session_state.drawn_lot, get_lot_data(st.session_state.drawn_lot))
     
     st.markdown("### 📖 第二階段：觀音靈籤解讀 ╳ 老臣身心靈調頻處方")
-    st.markdown(f"**親愛的 {st.session_state.user_name if st.session_state.user_name else '朋友'}**，針對您請示的【{st.session_state.selected_category}】事項：*「{st.session_state.user_question}」*，觀音菩薩賜予指引如下：")
+    category_icon = CATEGORIES_INFO.get(st.session_state.selected_category, {}).get("icon", "🌸")
+    st.markdown(f"**親愛的朋友**，針對您聚焦請示的【{category_icon} {st.session_state.selected_category}】面向，觀音菩薩賜予指引如下：")
     
     # 籤號與雙典故大標
     lot_id = lot.get("id", st.session_state.drawn_lot)
