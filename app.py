@@ -1,8 +1,39 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import random
 import os
 from lots_data import SPECIAL_LOTS
 from guanyin_lots import get_lot_data
+
+def scroll_to_top():
+    """確保切換階段時，畫面自動並立即平滑滾動至最頂端"""
+    components.html(
+        """
+        <script>
+            // 嘗試多種 selector 確保在各種 Streamlit 版本與容器架構下皆能順利置頂
+            function doScroll() {
+                try {
+                    const mainSec = window.parent.document.querySelector('section.main') || window.parent.document.querySelector('.main') || window.parent.document.querySelector('.stApp');
+                    if (mainSec) {
+                        mainSec.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                    }
+                    window.parent.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                    window.scrollTo(0, 0);
+                    const topAnchor = window.parent.document.getElementById('page-top-anchor');
+                    if (topAnchor) {
+                        topAnchor.scrollIntoView({ behavior: 'instant', block: 'start' });
+                    }
+                } catch (e) {}
+            }
+            doScroll();
+            // 短暫延遲再次執行，確保 DOM 完全渲染完畢後依然保持在頂部
+            setTimeout(doScroll, 50);
+            setTimeout(doScroll, 150);
+        </script>
+        """,
+        height=0,
+        width=0
+    )
 
 # 頁面基本配置
 st.set_page_config(
@@ -294,6 +325,7 @@ if "show_explanation" not in st.session_state:
     st.session_state.show_explanation = False
 
 # --- 一、頂部品牌識別與慈悲視覺 ---
+st.markdown('<div id="page-top-anchor"></div>', unsafe_allow_html=True)
 st.markdown("""
 <div style="background-color: #2D5A3F; border-radius: 16px; padding: 24px 20px; text-align: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
     <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 12px;">
@@ -517,6 +549,8 @@ if not st.session_state.show_explanation:
 
 # --- 三、解籤展示（第二階段：解籤四步驟與專屬調頻處方） ---
 else:
+    scroll_to_top()
+    st.markdown('<div id="page-top-anchor"></div>', unsafe_allow_html=True)
     lot = SPECIAL_LOTS.get(st.session_state.drawn_lot, get_lot_data(st.session_state.drawn_lot))
     
     st.markdown("### 📖 第二階段：觀音靈籤解讀 ╳ 老臣身心靈調頻處方")
